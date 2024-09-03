@@ -1,3 +1,5 @@
+### Ссылка на прототип: https://www.figma.com/design/bPXaCXbbq6RWCDwpuW8mrT/Chat_external_link-(Copy)?node-id=0-1&node-type=CANVAS&t=RFsEu64IT8jBPZ6z-0
+
 ### Ветка, в которой делаете задания спринта, должна называться sprint_i, где i - номер спринта. Не переименовывайте её.
 
 ### Откройте pull request в ветку main из ветки, где вы разрабатывали проект, и добавьте ссылку на этот pr в README.md в ветке main. 
