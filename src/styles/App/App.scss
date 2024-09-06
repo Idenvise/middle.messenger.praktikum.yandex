@@ -1,0 +1,30 @@
+@use '../vars/vars.scss' as *;
+
+.app {
+  display: flex;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  background-color: $light-background-color;
+}
+
+.input {
+  border: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+input,
+button {
+  font-family: inter, sans-serif, 'Times New Roman', Times, serif;
+}
+
+@font-face {
+  font-family: 'inter';
+  src: url('../../vendors/fonts/inter-regular.woff2') format('woff2');
+  font-weight: 400;
+}

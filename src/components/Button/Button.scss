@@ -1,0 +1,12 @@
+@use '../../styles/vars/vars.scss' as *;
+
+.button {
+  background-color: $highlighting-color;
+  color: $primary-text-color;
+  width: 100%;
+  max-width: 280px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 37px;
+}

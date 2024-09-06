@@ -1,0 +1,7 @@
+@use '../../styles/vars/vars.scss' as *;
+
+.input {
+  background-color: transparent;
+  border-bottom: 1px solid $highlighting-color;
+  width: 100%;
+}
