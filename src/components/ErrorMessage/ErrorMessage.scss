@@ -1,0 +1,6 @@
+@use '../../styles/vars/vars.scss' as *;
+
+.error__message {
+  color: $error-text-color;
+  font-size: 8px;
+}

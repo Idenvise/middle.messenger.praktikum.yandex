@@ -1,10 +1,10 @@
 import './Button.scss';
 export default `<button 
-  id='{{id}}'
+  id='{{buttonId}}'
   class='button'
   {{#if disabled}}
   disabled
   {{/if}}
   >
-    {{text}}
+    {{buttonText}}
   </button>`;

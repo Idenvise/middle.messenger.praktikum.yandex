@@ -1,8 +1,9 @@
 import './Input.scss';
 export default `<input 
-    id='{{id}}'
+    id='{{inputId}}'
     class='input'
-    type='{{type}}'
+    type='{{inputType}}'
     placeholder='{{placeholder}}'
-    value='{{value}}'
+    value='{{inputValue}}'
+    name='{{inputName}}'
   />`;
