@@ -1,7 +1,14 @@
 @use '../../styles/vars/vars.scss' as *;
 
 .input {
+  position: relative;
   background-color: transparent;
   border-bottom: 1px solid $highlighting-color;
   width: 100%;
+  padding-bottom: 7px;
+  font-size: 13px;
+}
+
+.input:not(:placeholder-shown):invalid {
+  color: $error-text-color;
 }

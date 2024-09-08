@@ -1,0 +1,1 @@
+.auth__label{position:absolute;top:0;left:0;transition:ease-in-out .2s;color:#ccc;font-size:13px}.input:not(:-moz-placeholder-shown)~.auth__label{top:-20px;font-size:9px}.input:focus~.auth__label,.input:not(:placeholder-shown)~.auth__label{top:-20px;font-size:9px}

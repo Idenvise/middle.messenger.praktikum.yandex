@@ -1,0 +1,42 @@
+<main class='app'>
+  <form class="auth__form">
+    <h1 class="auth__form__header">Регистрация</h1>
+    <div class='form__item'>
+      {{>Input inputType='email' inputName='email'}}
+      {{>Label labelText='Почта'}}
+    </div>
+    <div class='form__item'>
+      {{>Input inputType='text' inputName='login'}}
+      {{>Label labelText='Логин'}}
+    </div>
+    <div class='form__item'>
+      {{>Input inputType='text' inputName='firstName'}}
+      {{>Label labelText='Имя'}}
+    </div>
+    <div class='form__item'>
+      {{>Input inputType='text' inputName='lastName'}}
+      {{>Label labelText='Фамилия'}}
+    </div>
+    <div class='form__item'>
+      {{>Input inputType='tel' inputName='phone'}}
+      {{>Label labelText='Телефон'}}
+    </div>
+    <div class='form__item'>
+      {{>Input inputType='password' inputName='password'}}
+      {{>Label labelText='Пароль'}}
+    </div>
+    <div class='form__item'>
+      {{>Input inputType='password' inputName='repeatPassword'}}
+      {{>Label labelText='Пароль (ещё раз)'}}
+    </div>
+
+    
+    
+    
+    
+    
+    
+    {{>Button buttonType='submit' buttonText='Зарегистрироваться'}}
+    {{>BorderlessButton borderlessButtonType='button' borderlessButtonText='Войти'}}
+  </form>
+</main>

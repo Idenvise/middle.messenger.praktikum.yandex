@@ -1,0 +1,15 @@
+@use '../../styles/vars/vars.scss' as *;
+.auth__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: ease-in-out 0.2s;
+  color: $secondary-text-color;
+  font-size: 13px;
+}
+
+.input:focus ~ .auth__label,
+.input:not(:placeholder-shown) ~ .auth__label {
+  top: -20px;
+  font-size: 9px;
+}

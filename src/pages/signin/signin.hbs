@@ -1,9 +1,15 @@
 <main class='app'>
-  <form class="auth__form">
-    <h1 class="auth__form__header">{{signinHeader}}</h1>
-    {{>Input inputType='text' inputName='Логин' placeholder='Логин'}}
-    {{>Input inputType='password' inputName='Пароль' placeholder='Пароль'}}
-    {{>Button}}
-    {{>BorderlessButton}}
+  <form class='auth__form'>
+    <h1 class='auth__form__header'>Вход</h1>
+    <div class='form__item'>
+      {{>Input inputType='email' inputName='Логин'}}
+      {{>Label labelText='Логин'}}
+    </div>
+    <div class='form__item'>
+      {{>Input inputType='password' inputName='Пароль'}}
+      {{>Label labelText='Пароль'}}
+    </div>
+    {{>Button buttonText='Войти' buttonName='Авторизоваться'}}
+    {{>BorderlessButton borderlessButtonText='Нет аккаунта?' borderlessButtonName='toSignup'}}
   </form>
 </main>

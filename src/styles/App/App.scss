@@ -1,8 +1,9 @@
 @use '../vars/vars.scss' as *;
 
 #app {
+  display: flex;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
 }
 
 .app {
@@ -11,7 +12,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   flex-direction: column;
   background-color: $light-background-color;
 }
@@ -33,6 +34,7 @@ h4,
 p,
 input,
 input::placeholder,
+label,
 button {
   font-family: inter, sans-serif, 'Times New Roman', Times, serif;
   color: $primary-text-color;
@@ -48,6 +50,11 @@ button {
   width: 50%;
   align-items: center;
   box-sizing: border-box;
+}
+
+.form__item {
+  position: relative;
+  width: 100%;
 }
 
 @font-face {
