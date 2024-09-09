@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import handlebars from 'vite-plugin-handlebars';
+import eslint from 'vite-plugin-eslint';
 
 export default defineConfig({
-  plugins: [handlebars()],
+  plugins: [handlebars(), eslint()],
 });

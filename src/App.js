@@ -6,6 +6,7 @@ import Button from './components/Button/Button.js';
 import Input from './components/Input/Input.js';
 import BorderlessButton from './components/BorderlessButton/BorderlessButton.js';
 import Label from './components/Label/Label.js';
+import { chatList, currentChat } from './mockData.js';
 
 Handlebars.registerPartial('Button', Button);
 Handlebars.registerPartial('Input', Input);
@@ -44,7 +45,10 @@ export default class App {
     }
     if (this.state.currentPage === 'chats') {
       template = Handlebars.compile(Pages.chatsPage);
-      this.appElement.innerHTML = template();
+      this.appElement.innerHTML = template({
+        chat: chatList,
+        currentChat: currentChat,
+      });
     }
     this.attachEventListeners();
   }

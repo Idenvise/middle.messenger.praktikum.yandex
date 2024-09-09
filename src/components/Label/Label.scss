@@ -6,6 +6,7 @@
   transition: ease-in-out 0.2s;
   color: $secondary-text-color;
   font-size: 13px;
+  pointer-events: none;
 }
 
 .input:focus ~ .auth__label,

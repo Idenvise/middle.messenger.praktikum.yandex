@@ -2,22 +2,92 @@
   <div class='chats'>
     <aside class='chats__list'>
       <ul class='chat__list__items'>
-        <input />
-        <li class='chat__item'>
-          <img
-            class='chat__item__photo'
-            src='https://i.pinimg.com/originals/9a/ce/bc/9acebcae12cdf5f09104ad3450814641.jpg'
+
+        <div class='search__wrapper'>
+          <input
+            class='chats__search'
+            name='search'
+            type='text'
+            placeholder='Поиск'
           />
-          <p class='chat__username'>Asdds</p>
-          <div class='chat__data__wrapper'>
-            <p>10:49</p>
-            <p>asdasd</p>
-          </div>
-        </li>
+          <img
+            class='search__icon svg__button'
+            src='/public/images/search__icon.svg'
+            alt='Поиск'
+          />
+        </div>
+
+        {{#each chat}}
+          <li class='chat__item'>
+            <img
+              class='chat__item__photo'
+              src={{this.image}}
+              alt='Фото пользователя'
+            />
+            <div class='chat__data__wrapper'>
+              <p class='chat__username item__text'>{{this.name}}</p>
+              {{#if this.lastMessage}}
+                <p
+                  class='chat__last-message item__text'
+                >{{this.lastMessage}}</p>
+              {{/if}}
+            </div>
+
+            <div class='chat__data__wrapper'>
+              <p class='chat__date item__text'>{{this.date}}</p>
+              {{#if this.unreadMessage}}
+                <p class='chat__unread item__text'>{{this.unreadMessage}}</p>
+              {{/if}}
+            </div>
+          </li>
+        {{/each}}
       </ul>
     </aside>
-    <div>
+    {{#if currentChat}}
+      <div class='chat_current_chat'>
+        <div class='chat__user-info'>
+          {{#if currentChat.photo}}
+            <img
+              class='chat__user__photo'
+              src={{currentChat.photo}}
+              alt='Фото пользователя'
+            />
+          {{else}}
+            <div class='chat__user__photo chat__user__photo_none'>
 
-    </div>
+            </div>
+          {{/if}}
+          <p class='chat__current__username'>Вадим</p>
+          <img
+            class='chat__ellipsis svg__button'
+            src='/public/images/ellipsis__icon.svg'
+            alt='Функции чата'
+          />
+        </div>
+        <div class='chat__messages__wrapper'>
+          <p class='chat_nothing item__text'>{{currentChat.text}}</p>
+        </div>
+
+        <div class='chat__message__input__wrapper'>
+          <img
+            class='chat__message__attach__icon svg__button'
+            src='/public/images/attach__icon.svg'
+            alt='Прикрепить'
+          />
+          <input class='chat__message__input' placeholder='Сообщение' />
+          <img
+            class='chat__message__attach__icon svg__button'
+            src='/public/images/arrow__in__circle.svg'
+            alt='Отправить сообщение'
+          />
+        </div>
+      </div>
+    {{else}}
+      <div class='chat_current_nothing'>
+        <p class='chat_nothing item__text'>Выберите чат чтобы отправить
+          сообщение
+        </p>
+      </div>
+    {{/if}}
   </div>
 </main>
