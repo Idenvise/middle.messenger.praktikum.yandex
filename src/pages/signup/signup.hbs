@@ -1,41 +1,13 @@
 <main class='app'>
-  <form class="auth__form">
-    <h1 class="auth__form__header">Регистрация</h1>
-    <div class='form__item'>
-      {{>Input inputType='email' inputName='email'}}
-      {{>Label labelText='Почта'}}
-    </div>
-    <div class='form__item'>
-      {{>Input inputType='text' inputName='login'}}
-      {{>Label labelText='Логин'}}
-    </div>
-    <div class='form__item'>
-      {{>Input inputType='text' inputName='firstName'}}
-      {{>Label labelText='Имя'}}
-    </div>
-    <div class='form__item'>
-      {{>Input inputType='text' inputName='lastName'}}
-      {{>Label labelText='Фамилия'}}
-    </div>
-    <div class='form__item'>
-      {{>Input inputType='tel' inputName='phone'}}
-      {{>Label labelText='Телефон'}}
-    </div>
-    <div class='form__item'>
-      {{>Input inputType='password' inputName='password'}}
-      {{>Label labelText='Пароль'}}
-    </div>
-    <div class='form__item'>
-      {{>Input inputType='password' inputName='repeatPassword'}}
-      {{>Label labelText='Пароль (ещё раз)'}}
-    </div>
-
-    
-    
-    
-    
-    
-    
+  <form class='auth__form' name='signup'>
+    <h1 class='auth__form__header'>Регистрация</h1>
+    {{>Input inputType='email' inputName='email' labelText='Почта'}}
+    {{>Input inputType='text' inputName='login' labelText='Логин'}}
+    {{>Input inputType='text' inputName='firstName' labelText='Имя'}}
+    {{>Input inputType='text' inputName='lastName' labelText='Фамилия'}}
+    {{>Input inputType='tel' inputName='phone' labelText='Телефон'}}
+    {{>Input inputType='password' inputName='password' labelText='Пароль'}}
+    {{>Input inputType='password' inputName='repeatPassword' labelText='Пароль (ещё раз)'}}
     {{>Button buttonType='submit' buttonText='Зарегистрироваться'}}
     {{>BorderlessButton borderlessButtonType='button' borderlessButtonText='Войти'}}
   </form>

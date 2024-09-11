@@ -65,7 +65,7 @@
           />
         </div>
         <div class='chat__messages__wrapper'>
-          <p class='chat_nothing item__text'>{{currentChat.text}}</p>
+
         </div>
 
         <div class='chat__message__input__wrapper'>
@@ -74,7 +74,11 @@
             src='/public/images/attach__icon.svg'
             alt='Прикрепить'
           />
-          <input class='chat__message__input' placeholder='Сообщение' />
+          <input
+            class='chat__message__input'
+            placeholder='Сообщение'
+            name='message'
+          />
           <img
             class='chat__message__attach__icon svg__button'
             src='/public/images/arrow__in__circle.svg'
@@ -89,5 +93,14 @@
         </p>
       </div>
     {{/if}}
+    <div class='chat__action-popup'>
+      <form class='chat__action-form' name={{actionForm.formName}}>
+        <h2 class='chat__action-title'>{{actionForm.formActionTitle}}</h2>
+        {{#if actionForm.inputPlaceholder}}
+          {{>Input inputType='text' inputName='login' labelText=actionForm.inputPlaceholder}}
+        {{/if}}
+        {{>Button buttonType='submit' buttonName=actionForm.formSubmitName buttonText=actionForm.formSubmitText }}
+      </form>
+    </div>
   </div>
 </main>

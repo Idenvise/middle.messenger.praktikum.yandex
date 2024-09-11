@@ -1,0 +1,34 @@
+<main class='app'>
+  <div class='profile__wrapper'>
+    <aside class='profile__aside'>
+      <img
+        class='profile__aside__img'
+        src='/public/images/arrow__in__circle.svg'
+      />
+    </aside>
+    <div class='profile'>
+      <div class='profile__image__wrapper'>
+        {{#if profile.image}}
+          <div class='profile__image'>
+            <img
+              class='profile__image'
+              src={{profile.image}}
+              alt='Фото профиля'
+            />
+          </div>
+        {{else}}
+          <div class='profile__image'>
+            <img
+              class='profile__image__svg'
+              src='/public/images/default__profile__image.svg'
+              alt='Сменить фото'
+            />
+          </div>
+        {{/if}}
+        <p class='profile__image__hover'>
+          Поменять аватар
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
