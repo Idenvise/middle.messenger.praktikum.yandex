@@ -12,7 +12,20 @@ Handlebars.registerPartial('Button', Button);
 Handlebars.registerPartial('Input', Input);
 Handlebars.registerPartial('BorderlessButton', BorderlessButton);
 
-const a = '123';
+let i = 0;
+const navArr = [
+  'signin',
+  'signup',
+  'notFound',
+  'internalError',
+  'chats',
+  'chatsNoChose',
+  'chatsDeleteAction',
+  'chatsCreateAction',
+  'profile',
+  'profileEdit',
+];
+const nav = document.querySelector('nav');
 
 export default class App {
   constructor() {
@@ -153,7 +166,28 @@ export default class App {
         },
       });
     }
+
     this.attachEventListeners();
+    if (i < 1) {
+      i++;
+      this.addNav();
+    }
+  }
+
+  addNav() {
+    navArr.forEach((item) => {
+      const button = document.createElement('div');
+
+      button.setAttribute('style', 'fonst-size: 16px; color: white;');
+      button.textContent = item;
+
+      button.addEventListener('click', () => {
+        this.state.currentPage = item;
+        this.render();
+      });
+      nav.append(button);
+      console.log(button);
+    });
   }
 
   attachEventListeners() {
