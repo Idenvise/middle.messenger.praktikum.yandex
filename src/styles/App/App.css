@@ -22,7 +22,7 @@ button {
   border: none;
 }
 input::-moz-placeholder {
-  font-family: inter, sans-serif, 'Times New Roman', Times, serif;
+  font-family: inter, sans-serif, "Times New Roman", Times, serif;
   color: #eaeaea;
 }
 h1,
@@ -34,7 +34,7 @@ input,
 input::placeholder,
 label,
 button {
-  font-family: inter, sans-serif, 'Times New Roman', Times, serif;
+  font-family: inter, sans-serif, "Times New Roman", Times, serif;
   color: #eaeaea;
 }
 .auth__form {
@@ -70,7 +70,7 @@ button {
   background-color: #363636;
 }
 @font-face {
-  font-family: 'inter';
-  src: url('../../vendors/fonts/inter-regular.woff2') format('woff2');
+  font-family: "inter";
+  src: url("../../vendors/fonts/inter-regular.woff2") format("woff2");
   font-weight: 400;
 }

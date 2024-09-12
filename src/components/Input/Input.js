@@ -1,4 +1,4 @@
-import './Input.scss';
+import "./Input.scss";
 export default `
   <div class='form__item'>
     <input 

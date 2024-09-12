@@ -1,4 +1,4 @@
-import './Button.scss';
+import "./Button.scss";
 export default `<button 
   class='button'
   {{#if disabled}}

@@ -1,4 +1,4 @@
-@use '../vars/vars.scss' as *;
+@use "../vars/vars.scss" as *;
 
 #app {
   display: flex;
@@ -36,7 +36,7 @@ input,
 input::placeholder,
 label,
 button {
-  font-family: inter, sans-serif, 'Times New Roman', Times, serif;
+  font-family: inter, sans-serif, "Times New Roman", Times, serif;
   color: $primary-text-color;
 }
 
@@ -76,7 +76,7 @@ button {
 }
 
 @font-face {
-  font-family: 'inter';
-  src: url('../../vendors/fonts/inter-regular.woff2') format('woff2');
+  font-family: "inter";
+  src: url("../../vendors/fonts/inter-regular.woff2") format("woff2");
   font-weight: 400;
 }
