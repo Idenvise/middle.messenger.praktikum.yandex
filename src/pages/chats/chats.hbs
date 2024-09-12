@@ -87,14 +87,15 @@
         </div>
       </div>
     {{else}}
-      <div class='chat_current_nothing'>
+      <div class="chat_current_nothing">
         <p class='chat_nothing item__text'>Выберите чат чтобы отправить
           сообщение
         </p>
       </div>
     {{/if}}
-    <div class='chat__action-popup'>
-      <form class='chat__action-form' name={{actionForm.formName}}>
+    {{#if actionForm}}
+    <div class='chat__action-popup action-popup'>
+      <form class='chat__action-form action-form' name={{actionForm.formName}}>
         <h2 class='chat__action-title'>{{actionForm.formActionTitle}}</h2>
         {{#if actionForm.inputPlaceholder}}
           {{>Input inputType='text' inputName='login' labelText=actionForm.inputPlaceholder}}
@@ -102,5 +103,6 @@
         {{>Button buttonType='submit' buttonName=actionForm.formSubmitName buttonText=actionForm.formSubmitText }}
       </form>
     </div>
+    {{/if}}
   </div>
 </main>

@@ -1,1 +1,1 @@
-.auth__form{min-height:460px}.input{margin-bottom:50px}.button{margin-top:auto}
+.auth__form{min-height:460px}.form__item .input{margin-bottom:30px}.button{margin-top:auto}.form__item{display:flex;flex-direction:column;align-items:center}

@@ -28,8 +28,19 @@
   pointer-events: none;
 }
 
-.input:focus ~ .auth__label,
-.input:not(:placeholder-shown) ~ .auth__label {
+.input:focus:not(.input__profile) ~ .auth__label,
+.input:not(:placeholder-shown):not(:read-only):not(.input__profile)
+  ~ .auth__label {
   top: -20px;
   font-size: 9px;
+}
+
+.input__profile {
+  text-align: end;
+  margin-bottom: 10px;
+}
+
+.input:read-only {
+  pointer-events: none;
+  color: $secondary-text-color;
 }

@@ -193,33 +193,14 @@
   background-color: $light-background-color;
 }
 
-.chat__action-popup {
-  display: flex;
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba($dark-background-color, 0.5);
-  z-index: 1;
-}
-
-.chat__action-form {
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
-  min-width: 340px;
-  padding: 40px 30px;
-  background-color: $light-background-color;
-}
-
 .chat__action-title {
   margin-bottom: 50px;
 }
 
 .chat__action-title {
   font-size: 20px;
+}
+
+.chat__action-form .form__item {
+  margin-bottom: 33px;
 }

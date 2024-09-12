@@ -52,6 +52,29 @@ button {
   box-sizing: border-box;
 }
 
+.action-popup {
+  display: flex;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($dark-background-color, 0.5);
+  z-index: 1;
+}
+
+.action-form {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+  min-width: 340px;
+  padding: 40px 30px;
+  background-color: $light-background-color;
+}
+
 @font-face {
   font-family: 'inter';
   src: url('../../vendors/fonts/inter-regular.woff2') format('woff2');
