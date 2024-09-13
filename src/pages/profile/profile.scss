@@ -1,4 +1,4 @@
-@use "../../styles/vars/vars.scss" as *;
+@use '../../styles/vars/vars.scss' as *;
 
 .profile__wrapper {
   display: flex;
@@ -75,7 +75,7 @@
   font-size: 16px;
 }
 
-.profile__data__wrapper,
+.profile__data__form,
 .profile__data {
   display: flex;
   flex-direction: column;

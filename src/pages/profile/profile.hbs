@@ -33,7 +33,7 @@
       </form>
       <h1 class='profile__user__name'>{{profile.firstName}}</h1>
       <section class='profile__data'>
-        <div class='profile__data__wrapper'>
+        <form class='profile__data__form' name='editProfile'>
           {{#if changePassword}}
               {{>Input inputType='password' labelText='Старый пароль' inputName='oldPassword' textAlign='input__profile' isReadOnly=readonly}}
               {{>Input inputType='password' labelText='Новый пароль' inputName='newPassword' textAlign='input__profile' isReadOnly=readonly}}
@@ -57,7 +57,7 @@
               </div>
             
           
-        </div>
+        </form>
       </section>
     </div>
   </div>
