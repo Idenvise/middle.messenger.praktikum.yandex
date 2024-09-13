@@ -7,28 +7,30 @@
       />
     </aside>
     <div class='profile'>
-      <button class='profile__image__wrapper-button'>
-        {{#if profile.image}}
-          <div class='profile__image'>
-            <img
-              class='profile__image'
-              src={{profile.image}}
-              alt='Фото профиля'
-            />
-          </div>
-        {{else}}
-          <div class='profile__image'>
-            <img
-              class='profile__image__svg'
-              src='images/default__profile__image.svg'
-              alt='Сменить фото'
-            />
-          </div>
-        {{/if}}
-        <p class='profile__image__hover'>
-          Поменять аватар
-        </p>
-      </button>
+      <form class='profile__image__form' name='changeAvatar'>
+        <button class='profile__image__wrapper-button'>
+          {{#if profile.image}}
+            <div class='profile__image'>
+              <img
+                class='profile__image'
+                src={{profile.image}}
+                alt='Фото профиля'
+              />
+            </div>
+          {{else}}
+            <div class='profile__image'>
+              <img
+                class='profile__image__svg'
+                src='images/default__profile__image.svg'
+                alt='Сменить фото'
+              />
+            </div>
+          {{/if}}
+          <p class='profile__image__hover'>
+            Поменять аватар
+          </p>
+        </button>
+      </form>
       <h1 class='profile__user__name'>{{profile.firstName}}</h1>
       <section class='profile__data'>
         <div class='profile__data__wrapper'>
@@ -39,9 +41,9 @@
               {{else}}
               {{>Input inputType='email' labelText='Почта' inputName='email' textAlign='input__profile' inputValue=profile.email isReadOnly=readonly}}
               {{>Input inputType='text' labelText='Логин' inputName='login' textAlign='input__profile' inputValue=profile.login isReadOnly=readonly}}
-              {{>Input inputType='text' labelText='Имя' inputName='firsName' textAlign='input__profile' inputValue=profile.firstName isReadOnly=readonly}}
-              {{>Input inputType='text' labelText='Фамилия' inputName='lastName' textAlign='input__profile' inputValue=profile.lastName isReadOnly=readonly}}
-              {{>Input inputType='text' labelText='Имя в чате' inputName='visibleName' textAlign='input__profile' inputValue=profile.visibleName isReadOnly=readonly}}
+              {{>Input inputType='text' labelText='Имя' inputName='first_name' textAlign='input__profile' inputValue=profile.firstName isReadOnly=readonly}}
+              {{>Input inputType='text' labelText='Фамилия' inputName='second_name' textAlign='input__profile' inputValue=profile.lastName isReadOnly=readonly}}
+              {{>Input inputType='text' labelText='Имя в чате' inputName='display_name' textAlign='input__profile' inputValue=profile.visibleName isReadOnly=readonly}}
               {{>Input inputType='tel' labelText='Телефон' inputName='phone' textAlign='input__profile' inputValue=profile.phone isReadOnly=readonly}}
             {{/if}}
               <div class='profile__buttons'>

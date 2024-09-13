@@ -23,6 +23,12 @@
   flex-direction: column;
   width: 510px;
 }
+.profile__image__form {
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+}
 .profile__image__wrapper-button {
   position: relative;
   padding: 0;

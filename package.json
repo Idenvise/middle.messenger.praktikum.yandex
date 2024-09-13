@@ -7,7 +7,8 @@
     "dev": "vite --port 3000",
     "start": "npm run dev",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pretty": "npx prettier --write 'src/**/*.{html,css,js,scss}'"
   },
   "devDependencies": {
     "globals": "^15.9.0",
