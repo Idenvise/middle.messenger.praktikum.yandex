@@ -1,0 +1,14 @@
+@use "../../styles/vars/vars.scss" as *;
+
+.borderless-button {
+  font-size: 13px;
+  color: $highlighting-color;
+  margin-top: 14px;
+  border-radius: 12px;
+  padding: 0;
+  width: fit-content;
+}
+
+.red__color {
+  color: $error-text-color;
+}

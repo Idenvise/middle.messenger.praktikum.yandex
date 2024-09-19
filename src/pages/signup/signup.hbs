@@ -1,0 +1,14 @@
+<main class='app'>
+  <form class='auth__form' name='signup'>
+    <h1 class='auth__form__header'>Регистрация</h1>
+    {{>Input inputType='email' inputName='email' labelText='Почта'}}
+    {{>Input inputType='text' inputName='login' labelText='Логин'}}
+    {{>Input inputType='text' inputName='first_name' labelText='Имя'}}
+    {{>Input inputType='text' inputName='second_name' labelText='Фамилия'}}
+    {{>Input inputType='tel' inputName='phone' labelText='Телефон'}}
+    {{>Input inputType='password' inputName='password' labelText='Пароль'}}
+    {{>Input inputType='password' inputName='repeatPassword' labelText='Пароль (ещё раз)'}}
+    {{>Button buttonType='submit' buttonText='Зарегистрироваться' buttonName='submitSignup'}}
+    {{>BorderlessButton borderlessButtonType='button' borderlessButtonText='Войти'}}
+  </form>
+</main>

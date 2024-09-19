@@ -1,0 +1,11 @@
+<main class='app'>
+  <form class='auth__form' name='signin'>
+    <h1 class='auth__form__header'>Вход</h1>
+    <div class='form__item'>
+    {{>Input inputType='text' inputName='login' labelText='Логин'}}
+    {{>Input inputType='password' inputName='password' labelText='Пароль'}}
+
+    {{>Button buttonText='Войти' buttonType='submit' buttonName='submitSignin'}}
+    {{>BorderlessButton borderlessButtonText='Нет аккаунта?' borderlessButtonName='toSignup'}}
+  </form>
+</main>
