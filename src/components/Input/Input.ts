@@ -1,4 +1,4 @@
-import "./Input.scss";
+import './Input.scss';
 export default `
   <div class='form__item'>
     <input 
@@ -17,3 +17,24 @@ export default `
       {{labelText}}
     </label>
   </div>`;
+interface InputProps {
+  textAlign: string;
+  type: string;
+  value: string;
+  name: string;
+}
+
+export class Link extends Block {
+  constructor(props: LinkProps) {
+    super({
+      ...props,
+      events: {
+        click: (e: Event) => props.onClick && props.onClick(e),
+      },
+    });
+  }
+
+  override render(): string {
+    return '<a href="{{href}}" class="{{class}}" data-page="{{datapage}}">{{text}}</a>';
+  }
+}
