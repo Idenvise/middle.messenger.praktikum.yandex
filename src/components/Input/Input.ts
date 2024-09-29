@@ -1,40 +1,44 @@
 import './Input.scss';
-export default `
-  <div class='form__item'>
-    <input 
-      class='input {{textAlign}}'
-      type='{{inputType}}'
-      value='{{inputValue}}'
-      name='{{inputName}}'
-      required
-      autocomplete
-      placeholder
-      {{isReadOnly}}
-    />
-    <label
-      class='auth__label'
-    >
-      {{labelText}}
-    </label>
-  </div>`;
+import Block from '../../frameworks/Block';
+
 interface InputProps {
-  textAlign: string;
-  type: string;
-  value: string;
-  name: string;
+  textAlign?: string;
+  inputType: string;
+  inputValue?: string;
+  inputName: string;
+  isReadOnly: boolean;
+  labelText: string;
+  onClick?: (e: Event) => void;
 }
 
-export class Link extends Block {
-  constructor(props: LinkProps) {
+export class Input extends Block {
+  constructor(props: InputProps) {
     super({
-      ...props,
       events: {
         click: (e: Event) => props.onClick && props.onClick(e),
       },
+      ...props,
     });
   }
 
   override render(): string {
-    return '<a href="{{href}}" class="{{class}}" data-page="{{datapage}}">{{text}}</a>';
+    return `
+    <div class='form__item'>
+      <input 
+        class='input {{textAlign}}'
+        type='{{inputType}}'
+        value='{{inputValue}}'
+        name='{{inputName}}'
+        required
+        autocomplete
+        placeholder
+        {{isReadOnly}}
+      />
+      <label
+        class='auth__label'
+      >
+        {{labelText}}
+      </label>
+    </div>`;
   }
 }

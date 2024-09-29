@@ -2,15 +2,10 @@ import Handlebars from 'handlebars';
 
 import './styles/App/App.scss';
 
-import Button from './components/Button/Button.js';
-import Input from './components/Input/Input.js';
-import BorderlessButton from './components/BorderlessButton/BorderlessButton.js';
+import { BorderlessButton } from './components/BorderlessButton/BorderlessButton.ts';
 import { chatList, currentChat } from './mockData.js';
 import * as Pages from './pages/index.js';
-
-Handlebars.registerPartial('Button', Button);
-Handlebars.registerPartial('Input', Input);
-Handlebars.registerPartial('BorderlessButton', BorderlessButton);
+import { Signin } from './pages/signin/signin.ts';
 
 let i = 0;
 const navArr = [
@@ -37,7 +32,7 @@ class App {
     this.state = {
       currentPage:
         window.location.pathname === '/'
-          ? 'signin'
+          ? 'profile'
           : window.location.pathname.split('/').reverse()[0],
       //...someData
     };
@@ -47,12 +42,18 @@ class App {
   render() {
     let template;
     if (this.state.currentPage === 'signin') {
-      template = Handlebars.compile(Pages.signinPage);
-      this.appElement.innerHTML = template();
+      const signinPage = new Signin();
+      console.log(signinPage.getContent());
+      if (this.appElement) {
+        this.appElement.replaceWith(signinPage.getContent());
+      }
     }
     if (this.state.currentPage === 'signup') {
-      template = Handlebars.compile(Pages.signupPage);
-      this.appElement.innerHTML = template();
+      const signupPage = new Pages.Signup();
+      console.log(signupPage.getContent());
+      if (this.appElement) {
+        this.appElement.replaceWith(signupPage.getContent());
+      }
     }
     if (this.state.currentPage === 'notFound') {
       template = Handlebars.compile(Pages.errorPage);
@@ -109,68 +110,59 @@ class App {
       });
     }
     if (this.state.currentPage === 'profile') {
-      template = Handlebars.compile(Pages.profilePage);
-      this.appElement.innerHTML = template({
-        profile: {
-          image:
-            'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
-          firstName: 'Иван',
-          login: 'ivanivanov',
-          email: '123@123.ru',
-          lastName: 'Иванов',
-          visibleName: 'Lorem',
-          phone: '+7 (909) 967 30 30',
-        },
-        readonly: 'readonly',
-      });
+      const profilePage = new Pages.Profile();
+      console.log(profilePage.getContent());
+      if (this.appElement) {
+        this.appElement.replaceWith(profilePage.getContent());
+      }
     }
-    if (this.state.currentPage === 'profileEdit') {
-      template = Handlebars.compile(Pages.profilePage);
-      this.appElement.innerHTML = template({
-        profile: {
-          image:
-            'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
-          firstName: 'Иван',
-          login: 'ivanivanov',
-          email: '123@123.ru',
-          lastName: 'Иванов',
-          visibleName: 'Lorem',
-          phone: '+7 (909) 967 30 30',
-        },
-        readonly: '',
-      });
-    }
-    if (this.state.currentPage === 'profileChangePassword') {
-      template = Handlebars.compile(Pages.profilePage);
-      this.appElement.innerHTML = template({
-        profile: {
-          image:
-            'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
-          firstName: 'Иван',
-          login: 'ivanivanov',
-          email: '123@123.ru',
-          lastName: 'Иванов',
-          visibleName: 'Lorem',
-          phone: '+7 (909) 967 30 30',
-        },
-        changePassword: true,
-      });
-    }
-    if (this.state.currentPage === 'profileChangeAvatar') {
-      template = Handlebars.compile(Pages.profilePage);
-      this.appElement.innerHTML = template({
-        profile: {
-          image:
-            'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
-          firstName: 'Иван',
-          login: 'ivanivanov',
-          email: '123@123.ru',
-          lastName: 'Иванов',
-          visibleName: 'Lorem',
-          phone: '+7 (909) 967 30 30',
-        },
-      });
-    }
+    //if (this.state.currentPage === 'profileEdit') {
+    //  template = Handlebars.compile(Pages.profilePage);
+    //  this.appElement.innerHTML = template({
+    //    profile: {
+    //      image:
+    //        'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
+    //      firstName: 'Иван',
+    //      login: 'ivanivanov',
+    //      email: '123@123.ru',
+    //      lastName: 'Иванов',
+    //      visibleName: 'Lorem',
+    //      phone: '+7 (909) 967 30 30',
+    //    },
+    //    readonly: '',
+    //  });
+    //}
+    //if (this.state.currentPage === 'profileChangePassword') {
+    //  template = Handlebars.compile(Pages.profilePage);
+    //  this.appElement.innerHTML = template({
+    //    profile: {
+    //      image:
+    //        'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
+    //      firstName: 'Иван',
+    //      login: 'ivanivanov',
+    //      email: '123@123.ru',
+    //      lastName: 'Иванов',
+    //      visibleName: 'Lorem',
+    //      phone: '+7 (909) 967 30 30',
+    //    },
+    //    changePassword: true,
+    //  });
+    //}
+    //if (this.state.currentPage === 'profileChangeAvatar') {
+    //  template = Handlebars.compile(Pages.profilePage);
+    //  this.appElement.innerHTML = template({
+    //    profile: {
+    //      image:
+    //        'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
+    //      firstName: 'Иван',
+    //      login: 'ivanivanov',
+    //      email: '123@123.ru',
+    //      lastName: 'Иванов',
+    //      visibleName: 'Lorem',
+    //      phone: '+7 (909) 967 30 30',
+    //    },
+    //  });
+    //}
 
     this.attachEventListeners();
     if (i < 1) {
@@ -196,7 +188,7 @@ class App {
 
   attachEventListeners() {
     if (this.state.currentPage === 'signin') {
-      console.log(123);
+      return;
     }
   }
 }

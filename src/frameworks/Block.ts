@@ -39,11 +39,13 @@ export default class Block {
 
   private _addEvents(): void {
     const { events } = this.props;
-    Object.keys(events).forEach((eventName) => {
-      if (this._element) {
-        this._element.addEventListener(eventName, events[eventName]);
-      }
-    });
+    console.log(this.props);
+    events &&
+      Object.keys(events).forEach((eventName) => {
+        if (this._element) {
+          this._element.addEventListener(eventName, events[eventName]);
+        }
+      });
   }
 
   private _registerEvents(eventBus: EventBus): void {
@@ -156,6 +158,7 @@ export default class Block {
     });
 
     const fragment = this._createDocumentElement('template');
+    console.log(this);
     fragment.innerHTML = Handlebars.compile(this.render())(propsAndStubs);
 
     Object.values(this.children).forEach((child) => {

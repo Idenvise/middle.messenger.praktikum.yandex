@@ -1,10 +1,10 @@
 import './Button.scss';
 import Block from '../../frameworks/Block';
 
-export default interface ButtonProps {
+interface ButtonProps {
   disabled?: boolean;
-  type: string;
-  name: string;
+  buttonType: string;
+  buttonName: string;
   buttonText: string;
   onClick: (e: Event) => void;
 }
@@ -15,6 +15,7 @@ export class Button extends Block {
       events: {
         click: (e: Event) => props.onClick && props.onClick(e),
       },
+      ...props,
     });
   }
 
