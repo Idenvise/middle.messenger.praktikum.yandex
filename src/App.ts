@@ -3,9 +3,20 @@ import Handlebars from 'handlebars';
 import './styles/App/App.scss';
 
 import { BorderlessButton } from './components/BorderlessButton/BorderlessButton.ts';
-import { chatList, currentChat } from './mockData.js';
+import {
+  chatList,
+  chats,
+  currentChat,
+  internalErrorProps,
+  notFoundErrorProps,
+  profileEditProps,
+  profileProps,
+} from './mockData.js';
 import * as Pages from './pages/index.js';
 import { Signin } from './pages/signin/signin.ts';
+import { Input } from './components/Input/Input.ts';
+import { Button } from './components/Button/Button.ts';
+import getFormData from './helpers/getFormData.ts';
 
 let i = 0;
 const navArr = [
@@ -32,7 +43,7 @@ class App {
     this.state = {
       currentPage:
         window.location.pathname === '/'
-          ? 'profile'
+          ? 'chats'
           : window.location.pathname.split('/').reverse()[0],
       //...someData
     };
@@ -55,114 +66,74 @@ class App {
         this.appElement.replaceWith(signupPage.getContent());
       }
     }
-    if (this.state.currentPage === 'notFound') {
-      template = Handlebars.compile(Pages.errorPage);
-      this.appElement.innerHTML = template({
-        errorCode: '404',
-        errorMessage: 'Не туда попали',
-      });
+    if (this.state.currentPage === 'notFoundError') {
+      const errorPage = new Pages.Error(notFoundErrorProps);
+      console.log(errorPage.getContent());
+      if (this.appElement) {
+        this.appElement.replaceWith(errorPage.getContent());
+      }
     }
     if (this.state.currentPage === 'internalError') {
-      template = Handlebars.compile(Pages.errorPage);
-      this.appElement.innerHTML = template({
-        errorCode: '500',
-        errorMessage: 'Мы уже фиксим',
-      });
+      const errorPage = new Pages.Error(internalErrorProps);
+      console.log(errorPage.getContent());
+      if (this.appElement) {
+        this.appElement.replaceWith(errorPage.getContent());
+      }
     }
     if (this.state.currentPage === 'chats') {
-      template = Handlebars.compile(Pages.chatsPage);
-      this.appElement.innerHTML = template({
-        chat: chatList,
-        currentChat: currentChat,
-      });
+      const chatsPage = new Pages.Chats(chats);
+      console.log(chatsPage.getContent());
+      if (this.appElement) {
+        this.appElement.replaceWith(chatsPage.getContent());
+      }
     }
-    if (this.state.currentPage === 'chatsNoChose') {
-      template = Handlebars.compile(Pages.chatsPage);
-      this.appElement.innerHTML = template({
-        chat: chatList,
-      });
-    }
-    if (this.state.currentPage === 'chatsDeleteAction') {
-      template = Handlebars.compile(Pages.chatsPage);
-      this.appElement.innerHTML = template({
-        chat: chatList,
-        currentChat: currentChat,
-        actionForm: {
-          formName: 'deleteChat',
-          formActionTitle: 'Удалить чат?',
-          formSubmitText: 'Удалить',
-          formSubmitName: 'submitDeleteChat',
-        },
-      });
-    }
-    if (this.state.currentPage === 'chatsCreateAction') {
-      template = Handlebars.compile(Pages.chatsPage);
-      this.appElement.innerHTML = template({
-        chat: chatList,
-        currentChat: currentChat,
-        actionForm: {
-          formName: 'createChat',
-          formActionTitle: 'Создать чат',
-          formSubmitText: 'Добавить',
-          formSubmitName: 'submitCreateChat',
-          inputPlaceholder: 'Логин',
-        },
-      });
-    }
+    //if (this.state.currentPage === 'chatsNoChose') {
+    //  template = Handlebars.compile(Pages.chatsPage);
+    //  this.appElement.innerHTML = template({
+    //    chat: chatList,
+    //  });
+    //}
+    //if (this.state.currentPage === 'chatsDeleteAction') {
+    //  template = Handlebars.compile(Pages.chatsPage);
+    //  this.appElement.innerHTML = template({
+    //    chat: chatList,
+    //    currentChat: currentChat,
+    //    actionForm: {
+    //      formName: 'deleteChat',
+    //      formActionTitle: 'Удалить чат?',
+    //      formSubmitText: 'Удалить',
+    //      formSubmitName: 'submitDeleteChat',
+    //    },
+    //  });
+    //}
+    //if (this.state.currentPage === 'chatsCreateAction') {
+    //  template = Handlebars.compile(Pages.chatsPage);
+    //  this.appElement.innerHTML = template({
+    //    chat: chatList,
+    //    currentChat: currentChat,
+    //    actionForm: {
+    //      formName: 'createChat',
+    //      formActionTitle: 'Создать чат',
+    //      formSubmitText: 'Добавить',
+    //      formSubmitName: 'submitCreateChat',
+    //      inputPlaceholder: 'Логин',
+    //    },
+    //  });
+    //}
     if (this.state.currentPage === 'profile') {
-      const profilePage = new Pages.Profile();
+      const profilePage = new Pages.Profile(profileProps);
       console.log(profilePage.getContent());
       if (this.appElement) {
         this.appElement.replaceWith(profilePage.getContent());
       }
     }
-    //if (this.state.currentPage === 'profileEdit') {
-    //  template = Handlebars.compile(Pages.profilePage);
-    //  this.appElement.innerHTML = template({
-    //    profile: {
-    //      image:
-    //        'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
-    //      firstName: 'Иван',
-    //      login: 'ivanivanov',
-    //      email: '123@123.ru',
-    //      lastName: 'Иванов',
-    //      visibleName: 'Lorem',
-    //      phone: '+7 (909) 967 30 30',
-    //    },
-    //    readonly: '',
-    //  });
-    //}
-    //if (this.state.currentPage === 'profileChangePassword') {
-    //  template = Handlebars.compile(Pages.profilePage);
-    //  this.appElement.innerHTML = template({
-    //    profile: {
-    //      image:
-    //        'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
-    //      firstName: 'Иван',
-    //      login: 'ivanivanov',
-    //      email: '123@123.ru',
-    //      lastName: 'Иванов',
-    //      visibleName: 'Lorem',
-    //      phone: '+7 (909) 967 30 30',
-    //    },
-    //    changePassword: true,
-    //  });
-    //}
-    //if (this.state.currentPage === 'profileChangeAvatar') {
-    //  template = Handlebars.compile(Pages.profilePage);
-    //  this.appElement.innerHTML = template({
-    //    profile: {
-    //      image:
-    //        'https://cdn.culture.ru/images/3683f3cb-34bf-5388-a13d-00486f99fd8e',
-    //      firstName: 'Иван',
-    //      login: 'ivanivanov',
-    //      email: '123@123.ru',
-    //      lastName: 'Иванов',
-    //      visibleName: 'Lorem',
-    //      phone: '+7 (909) 967 30 30',
-    //    },
-    //  });
-    //}
+    if (this.state.currentPage === 'profileEdit') {
+      const profilePage = new Pages.Profile(profileEditProps);
+      console.log(profilePage.getContent());
+      if (this.appElement) {
+        this.appElement.replaceWith(profilePage.getContent());
+      }
+    }
 
     this.attachEventListeners();
     if (i < 1) {

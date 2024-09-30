@@ -4,6 +4,7 @@ import { Input } from '../../components/Input/Input';
 import { Button } from '../../components/Button/Button';
 import { BorderlessButton } from '../../components/BorderlessButton/BorderlessButton';
 import Block from '../../frameworks/Block';
+import getFormData from '../../helpers/getFormData';
 
 export class Signin extends Block {
   constructor() {
@@ -15,12 +16,14 @@ export class Signin extends Block {
         buttonText: 'Войти',
         onClick: (e) => {
           e.preventDefault();
-          console.log(this._getFormData());
+          console.log(
+            getFormData(document.querySelector('form') as HTMLFormElement)
+          );
         },
       }),
       BorderlessButton: new BorderlessButton({
-        type: 'button',
-        name: 'toSignup',
+        borderlessButtonType: 'button',
+        borderlessButtonName: 'toSignup',
         borderlessButtonText: 'Нет аккаунта?',
         onClick: () => console.log(1),
       }),
@@ -28,30 +31,15 @@ export class Signin extends Block {
         new Input({
           inputType: 'text',
           inputName: 'login',
-          isReadOnly: false,
           labelText: 'Логин',
         }),
         new Input({
           inputType: 'password',
           inputName: 'password',
-          isReadOnly: false,
           labelText: 'Пароль',
         }),
       ],
     });
-  }
-
-  private _getFormData(): { name: string; password: string } | '' {
-    const name: HTMLInputElement | null =
-      document.querySelector('[name="login"]');
-    const password: HTMLInputElement | null =
-      document.querySelector('[name="password"]');
-    return name && password
-      ? {
-          name: name.value,
-          password: password.value,
-        }
-      : '';
   }
 
   override render() {

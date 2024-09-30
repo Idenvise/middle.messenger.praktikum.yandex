@@ -6,7 +6,7 @@ interface InputProps {
   inputType: string;
   inputValue?: string;
   inputName: string;
-  isReadOnly: boolean;
+  isReadOnly?: string;
   labelText: string;
   onClick?: (e: Event) => void;
 }

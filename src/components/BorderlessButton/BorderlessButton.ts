@@ -4,8 +4,8 @@ import Block from '../../frameworks/Block';
 interface BorderlessButtonProps {
   borderlessButtonId?: string;
   addClass?: string;
-  type: string;
-  name: string;
+  borderlessButtonType: string;
+  borderlessButtonName: string;
   borderlessButtonText: string;
   onClick: (e: Event) => void;
 }

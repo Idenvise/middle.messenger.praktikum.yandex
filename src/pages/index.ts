@@ -1,5 +1,5 @@
 export { Signin } from './signin/signin';
 export { Signup } from './signup/signup';
-export { errorPage } from './error';
-export { chatsPage } from './chats';
+export { Error } from './error/error';
+export { Chats } from './chats/chats';
 export { Profile } from './profile/profile';
