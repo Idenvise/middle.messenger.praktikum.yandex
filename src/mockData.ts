@@ -4,31 +4,6 @@ import { ChatElement } from './components/ChatElement/ChatElement';
 import { Input } from './components/Input/Input';
 import getFormData from './helpers/getFormData';
 
-export const chatList = [
-  {
-    image:
-      'https://avatars.mds.yandex.net/i?id=f0632e75c5cfe7c215eac871fc886532_l-5216269-images-thumbs&n=13',
-    name: 'Peter',
-    date: '10:26',
-    unreadMessage: '2',
-    lastMessage: 'Вы: Lorem Ipsum',
-  },
-  {
-    image:
-      'https://avatars.mds.yandex.net/i?id=40d5bc3c70f16038f53abcf05b274592_l-4120498-images-thumbs&n=13',
-    name: 'Дмитрий',
-    date: '20:24',
-  },
-  {
-    image:
-      'https://avatars.mds.yandex.net/i?id=f0632e75c5cfe7c215eac871fc886532_l-5216269-images-thumbs&n=13',
-    name: 'Peter',
-    date: '10:26',
-    unreadMessage: '2',
-    lastMessage: 'Вы: Lorem Ipsum',
-  },
-];
-
 export const currentChat = {
   text: 'Здесь будут сообщения',
   photo:
@@ -243,4 +218,26 @@ export const chats = {
       onClick: () => console.log('chatClick'),
     }),
   ],
+  currentChat: {
+    photo:
+      'https://avatars.mds.yandex.net/i?id=40d5bc3c70f16038f53abcf05b274592_l-4120498-images-thumbs&n=13',
+    username: 'Alex',
+    messages: [
+      {
+        myMessage: true,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam imperdiet consectetur libero id molestie. Nulla consequat nisi et elit tincidunt suscipit. Praesent fringilla urna massa, sed malesuada orci pharetra et. Ut sed purus et leo sodales tincidunt a in risus. Mauris posuere felis ac diam convallis molestie.',
+        time: '12:00',
+      },
+      {
+        myMessage: false,
+        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam imperdiet consectetur libero id molestie. Nulla consequat nisi et elit tincidunt suscipit. Praesent fringilla urna massa, sed malesuada orci pharetra et. Ut sed purus et leo sodales tincidunt a in risus. Mauris posuere felis ac diam convallis molestie. Nunc placerat laoreet enim et imperdiet. Nam vel magna ut turpis sollicitudin ullamcorper. Fusce erat ipsum, interdum at tempor ac, faucibus id lacus. Vestibulum eget neque ut velit gravida condimentum vel eget diam. Sed condimentum leo eget lacus sollicitudin, vitae faucibus urna feugiat. Pellentesque posuere urna felis, sit amet consectetur elit venenatis id. Nulla et sapien non leo sodales tempus vitae id turpis. Nam vitae aliquet dolor',
+        time: '12:51',
+      },
+      {
+        myMessage: true,
+        text: 'Loerm ipsum',
+        time: '12:52',
+      },
+    ],
+  },
 };

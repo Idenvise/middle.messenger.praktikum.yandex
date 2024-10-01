@@ -1,12 +1,6 @@
-import Handlebars from 'handlebars';
-
 import './styles/App/App.scss';
-
-import { BorderlessButton } from './components/BorderlessButton/BorderlessButton.ts';
 import {
-  chatList,
   chats,
-  currentChat,
   internalErrorProps,
   notFoundErrorProps,
   profileEditProps,
@@ -14,9 +8,6 @@ import {
 } from './mockData.js';
 import * as Pages from './pages/index.js';
 import { Signin } from './pages/signin/signin.ts';
-import { Input } from './components/Input/Input.ts';
-import { Button } from './components/Button/Button.ts';
-import getFormData from './helpers/getFormData.ts';
 
 let i = 0;
 const navArr = [
@@ -51,7 +42,6 @@ class App {
   }
 
   render() {
-    let template;
     if (this.state.currentPage === 'signin') {
       const signinPage = new Signin();
       console.log(signinPage.getContent());

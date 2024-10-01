@@ -1,5 +1,6 @@
 import './chats.scss';
 import Block from '../../frameworks/Block';
+import getFormData from '../../helpers/getFormData';
 
 interface Props {
   [key: string]: any;
@@ -8,6 +9,16 @@ interface Props {
 export class Chats extends Block {
   constructor(props: Props) {
     super(props);
+    const consoleMessage = () => {
+      removeEventListener('DOMContentLoaded', consoleMessage);
+      const form = document.querySelector('form.chat__message__input__wrapper');
+      form &&
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          console.log(getFormData(form as HTMLFormElement));
+        });
+    };
+    addEventListener('DOMContentLoaded', consoleMessage);
   }
 
   override render() {
@@ -47,7 +58,7 @@ export class Chats extends Block {
 
                   </div>
                 {{/if}}
-                <p class='chat__current__username'>Вадим</p>
+                <p class='chat__current__username'>{{currentChat.username}}</p>
                 <img
                   class='chat__ellipsis svg__button'
                   src='images/ellipsis__icon.svg'
@@ -55,10 +66,15 @@ export class Chats extends Block {
                 />
               </div>
               <div class='chat__messages__wrapper'>
-
+                {{#each currentChat.messages}}
+                  <div class='{{#if myMessage}}chat__message__my{{else}}chat__message__other{{/if}}'>
+                    <p class='chat__message__text'>{{text}}</p>
+                    <p class='chat__message__time'>{{time}}</p>
+                  </div>
+                {{/each}}
               </div>
 
-              <div class='chat__message__input__wrapper'>
+              <form class='chat__message__input__wrapper' name='message'>
                 <img
                   class='chat__message__attach__icon svg__button'
                   src='images/attach__icon.svg'
@@ -69,12 +85,14 @@ export class Chats extends Block {
                   placeholder='Сообщение'
                   name='message'
                 />
-                <img
+                <button class='chat__message__submit' type='submit'>
+                  <img
                   class='chat__message__attach__icon svg__button'
                   src='images/arrow__in__circle.svg'
                   alt='Отправить сообщение'
                 />
-              </div>
+                </button>
+              </form>
             </div>
           {{else}}
             <div class="chat_current_nothing">

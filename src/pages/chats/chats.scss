@@ -91,6 +91,8 @@
 }
 
 .chat__messages__wrapper {
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
@@ -155,4 +157,33 @@
 
 .chat__action-form .form__item {
   margin-bottom: 33px;
+}
+
+.chat__message__my,
+.chat__message__other {
+  display: flex;
+  width: fit-content;
+  max-width: 50%;
+  color: $primary-text-color;
+  padding: 11px;
+  border-radius: 12px;
+  margin: 5px 0;
+}
+.chat__message__my {
+  align-self: flex-end;
+  background-color: $highlighting-color;
+}
+
+.chat__message__other {
+  align-self: flex-start;
+  background-color: $light-background-color;
+}
+
+.chat__message__text {
+  margin: 0;
+}
+.chat__message__time {
+  margin: 0 0 0 5px;
+  align-self: flex-end;
+  font-size: 9px;
 }
